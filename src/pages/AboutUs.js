@@ -1,5 +1,8 @@
 import React from "react";
 import "../styles/AboutUs.css";
+import Team1 from "../assets/images/filler1.png";
+import Team2 from "../assets/images/filler2.png";
+import Team3 from "../assets/images/filler3.png";
 
 const AboutUs = () => {
   return (
@@ -25,17 +28,17 @@ const AboutUs = () => {
         <h2>Meet the Team</h2>
         <div className="team-grid">
           <div className="team-member">
-            <img src="/assets/images/team1.jpg" alt="Team Member 1" />
+            <img src={Team1} alt="Team Member 1" />
             <h3>Jane Doe</h3>
             <p>Founder & CEO</p>
           </div>
           <div className="team-member">
-            <img src="/assets/images/team2.jpg" alt="Team Member 2" />
+            <img src={Team2} alt="Team Member 2" />
             <h3>John Smith</h3>
             <p>Operations Manager</p>
           </div>
           <div className="team-member">
-            <img src="/assets/images/team3.jpg" alt="Team Member 3" />
+            <img src={Team3} alt="Team Member 3" />
             <h3>Emily Taylor</h3>
             <p>Customer Support Lead</p>
           </div>
