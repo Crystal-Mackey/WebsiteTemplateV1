@@ -1,17 +1,17 @@
 section {
   padding: 60px 20px;
-  background-color: #f9f9f9;
+  background-color: #000000;
 }
 
 #home {
-  background-color: #282c34;
+  background-color: #000000;
   color: white;
   text-align: center;
 }
 
 #about, #services, #contact {
-  background-color: #f4f4f9;
-  color: #333;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 section h1 {
@@ -41,11 +41,11 @@ section h1 {
   
   .team-member h3 {
     margin: 5px 0;
-    color: #333;
+    color: #ffffff;
   }
   
   .team-member p {
-    color: #666;
+    color: #ffffff;
     font-size: 0.9em;
   }
   
