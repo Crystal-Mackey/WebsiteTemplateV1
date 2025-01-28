@@ -3,8 +3,10 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import AboutUs from "./pages/AboutUs";
 import Services from "./components/Services";
-import Contact from "./pages/Contact";
+import images from "./assets/images/images";
+import Gallery from "./pages/Gallery";
 import BackToTop from "./components/BackToTop";
+
 import config from "./config";
 import "./styles/global.css";
 
@@ -25,8 +27,8 @@ function App() {
       <section id="services">
         <Services services={config.services} />
       </section>
-      <section id="contact">
-        <Contact />
+      <section id="gallery">
+        <Gallery images={images}/>
       </section>
       <BackToTop />
     </div>
