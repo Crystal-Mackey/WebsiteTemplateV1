@@ -6,7 +6,7 @@ import Services from "./components/Services";
 import images from "./assets/images/images";
 import Gallery from "./pages/Gallery";
 import BackToTop from "./components/BackToTop";
-
+import ContactPage from "./pages/ContactPage";
 import config from "./config";
 import "./styles/global.css";
 
@@ -29,6 +29,9 @@ function App() {
       </section>
       <section id="gallery">
         <Gallery images={images}/>
+      </section>
+      <section id="contact">
+        <ContactPage/>
       </section>
       <BackToTop />
     </div>
