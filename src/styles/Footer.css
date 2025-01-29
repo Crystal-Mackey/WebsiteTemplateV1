@@ -1,10 +1,12 @@
 footer {
-    background-color: #000000;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+}
+
+.footer-logo {
+  width: 150px; /* Adjust the size as needed */
+  height: auto;
+  margin-top: 10px;
+}

@@ -1,0 +1,33 @@
+.contact-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .business-info {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f9f9f9;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .business-info h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .business-info p {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  
+  .map-container {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  

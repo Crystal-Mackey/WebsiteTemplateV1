@@ -7,6 +7,7 @@ import images from "./assets/images/images";
 import Gallery from "./pages/Gallery";
 import BackToTop from "./components/BackToTop";
 import ContactPage from "./pages/ContactPage";
+import Footer from "./components/Footer";
 import config from "./config";
 import "./styles/global.css";
 
@@ -32,6 +33,9 @@ function App() {
       </section>
       <section id="contact">
         <ContactPage/>
+      </section>
+      <section id="footer">
+        <Footer/>
       </section>
       <BackToTop />
     </div>
