@@ -9,7 +9,6 @@
     margin-top: 40px;
     padding: 20px;
     background: #f9f9f9;
-    color: black;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -24,9 +23,26 @@
     font-size: 16px;
   }
   
+  /* ✅ Clickable Links Styling */
+  .clickable-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .clickable-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  /* Google Maps Embed */
   .map-container {
     margin-top: 20px;
     width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 10px;
     overflow: hidden;
   }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/ContactForm.css";
 
 export default function ContactForm() {
@@ -8,33 +8,47 @@ export default function ContactForm() {
     message: "",
   });
 
-  const [status, setStatus] = useState(""); // ✅ Status message for success or failure
-  const [loading, setLoading] = useState(false); // ✅ Loading state to prevent multiple submissions
+  const [status, setStatus] = useState(""); // ✅ Stores success or error message
+  const [loading, setLoading] = useState(false); // ✅ Prevents multiple submissions
+
+  // ✅ Hide the success message after 10 seconds
+  useEffect(() => {
+    if (status) {
+      const timer = setTimeout(() => setStatus(""), 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // ✅ Prevent default form submission behavior
+    e.preventDefault();
     setLoading(true);
     setStatus("");
 
     try {
-      const response = await fetch("https://formsubmit.co/info@maxartistrydesigns.com", {
+      const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
       });
+
+      const result = await response.json();
 
       if (response.ok) {
         setStatus("✅ Message Sent Successfully!");
-        setFormData({ name: "", email: "", message: "" }); // ✅ Reset form after successful submission
+        setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus("❌ Message failed. Please try again!");
+        setStatus(`❌ Failed to send: ${result.error || "Please try again later."}`);
       }
     } catch (error) {
-      setStatus("❌ Something went wrong. Please try again later.");
+      setStatus("❌ Network error. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -42,28 +56,37 @@ export default function ContactForm() {
 
   return (
     <div className="contact-form-container">
-      <h1>Contact Us</h1>
-      <p>Have questions? Reach out to us below.</p>
-
+      <h2>Contact Us</h2>
       <form className="contact-form" onSubmit={handleSubmit}>
-        <div className="contact-form-input">
-          <input type="text" name="name" placeholder="Your Name" required value={formData.name} onChange={handleChange} />
-          <input type="email" name="email" placeholder="Your Email" required value={formData.email} onChange={handleChange} />
-        </div>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+          value={formData.name}
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          required
+          value={formData.message}
+          onChange={handleChange}
+        />
 
-        <div className="contact-form-textarea">
-          <textarea name="message" placeholder="Your Message" required value={formData.message} onChange={handleChange} />
-        </div>
+        <button type="submit" disabled={loading}>
+          {loading ? "Sending..." : "Send Message"}
+        </button>
 
-        {/* Hidden inputs for better email handling */}
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_subject" value="New Contact Form Submission" />
-
-        <div className="contact-form-button">
-          <button type="submit" disabled={loading}>{loading ? "Sending..." : "Send Message"}</button>
-        </div>
-
-        {status && <p className="status-message">{status}</p>} {/* ✅ Display success or error message */}
+        {status && <p className="status-message">{status}</p>}
       </form>
     </div>
   );

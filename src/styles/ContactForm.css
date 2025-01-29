@@ -81,7 +81,14 @@
   margin-top: 15px;
   font-size: 16px;
   font-weight: bold;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
+
+.status-message.hide {
+  opacity: 0;
+}
+
 
 .status-message.success {
   color: green;
