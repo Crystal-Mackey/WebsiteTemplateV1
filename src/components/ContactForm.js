@@ -27,25 +27,28 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     setStatus("");
-
+  
     try {
-      const response = await fetch("/api/sendEmail", {
+      const response = await fetch("https://formsubmit.co/ajax/info@maxartistrydesigns.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           message: formData.message,
+          _subject: "New Contact Form Submission",
+          _captcha: "false",
+          _template: "table",
         }),
       });
-
+  
       const result = await response.json();
-
+  
       if (response.ok) {
         setStatus("✅ Message Sent Successfully!");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus(`❌ Failed to send: ${result.error || "Please try again later."}`);
+        setStatus(`❌ Failed to send: ${result.message || "Please try again later."}`);
       }
     } catch (error) {
       setStatus("❌ Network error. Please try again later.");
@@ -53,6 +56,7 @@ export default function ContactForm() {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="contact-form-container">
