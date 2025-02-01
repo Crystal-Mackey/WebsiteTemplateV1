@@ -1,24 +1,102 @@
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  background-color: #222;
+  color: white;
+  position: fixed; /* Keeps navbar on top */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensures navbar is above other content */
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  padding-right: 30px;
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #000000;
-    color: #fff;
   }
-  
+
   .navbar-links {
-    list-style: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    height: auto; /* Makes the menu cover the full screen */
+    background-color: rgba(34, 34, 34, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 1000; /* Ensures dropdown appears above content */
+    padding: 20px 0; /* Adds space for bottom link */
+    overflow-y: auto; /* Enables scrolling if needed */
+  }
+
+  .navbar-links.open {
     display: flex;
-    gap: 15px;
   }
-  
+
+  .navbar-links li {
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+
   .navbar-links a {
-    color: #fff;
-    text-decoration: none;
+    width: 100%;
+    display: block;
+    padding: 15px;
+    font-size: 1.5rem;
   }
-  
-  .navbar-links a:hover {
-    text-decoration: underline;
+
+  /* Animate the hamburger icon */
+  .bar.open:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
   }
-  
+
+  .bar.open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .bar.open:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}

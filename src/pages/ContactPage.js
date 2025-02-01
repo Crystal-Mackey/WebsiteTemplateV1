@@ -1,4 +1,4 @@
-import ContactForm from "../components/ContactForm";
+// import ContactForm from "../components/ContactForm";
 import "../styles/ContactPage.css"; // ✅ Import the styles
 
 export default function ContactPage() {
@@ -8,7 +8,7 @@ export default function ContactPage() {
       <p>Have questions? Reach out to us below.</p>
 
       {/* ✅ Contact Form */}
-      <ContactForm />
+      {/* <ContactForm /> */}
 
       {/* ✅ Business Info Section */}
       <div className="business-info">
