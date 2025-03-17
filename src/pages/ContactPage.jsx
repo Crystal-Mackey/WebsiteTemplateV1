@@ -1,5 +1,7 @@
 // import ContactForm from "../components/ContactForm";
 import "../styles/ContactPage.css"; // ✅ Import the styles
+import React from "react";
+
 
 export default function ContactPage() {
   return (

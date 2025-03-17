@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import AboutUs from "./pages/AboutUs";
-import Services from "./components/Services";
-import images from "./assets/images/images";
-import Gallery from "./pages/Gallery";
-import BackToTop from "./components/BackToTop";
-import ContactPage from "./pages/ContactPage";
-import Footer from "./components/Footer";
+import Navbar from "./components/Navbar.jsx";
+import Hero from "./components/Hero.jsx";
+import AboutUs from "./pages/AboutUs.jsx";
+import Services from "./components/Services.jsx";
+import images from "./assets/images/images.jsx";
+import Gallery from "./pages/Gallery.jsx";
+import BackToTop from "./components/BackToTop.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
+import Footer from "./components/Footer.jsx";
 import config from "./config";
 import "./styles/global.css";
 
